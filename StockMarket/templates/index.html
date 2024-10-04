@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>MarketMinds</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <!-- Favicons -->
+  <link href="{% static 'media/logo.svg' %}" rel="icon">
+  <link href="{% static 'assets/imgs/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+  href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet">
+  
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{% static 'css/utility.css' %}" rel="stylesheet">
+
+  
+</head>
+
+<body class="index-page">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand d-flex gap-2 justify-content-center align-items-center text-dark" href="{% url 'index' %}"><img src="{% static 'media/logo.svg' %}" alt="logo">
+        MarketMinds</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'company-search' %}">Company Detail</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'details' %}">Stock Detail</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'compare' %}">Compare Stocks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'predict' %}">Predict Stock Prices</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-7 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <h1>Welcome to MoneyMinds</h1>
+            <p>Empowering you with real-time stock data, insightful analysis, and market predictions.</p>
+            <div class="d-flex">
+              <a href="{% url 'company-search' %}" class="btn-get-started">Explore Stocks</a>
+            </div>
+          </div>
+          <div class="col-lg-5 order-1 order-lg-2 hero-img">
+            <img src="{% static 'assets/imgs/hero-img.png' %}" class="img-fluid" alt="Stock Data Visualization">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Hero Section -->
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
+    
+          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <img src="{% static 'assets/imgs/about.jpg' %}" class="img-fluid" alt="About StockVision">
+          </div>
+    
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h3>About MoneyMinds</h3>
+              <h2>Powerful tools for smarter investments.</h2>
+              <p>
+                StockVision helps you explore companies, track stock details, compare stocks, and predict future prices using advanced analytics.
+              </p>
+              <div class="text-center text-lg-start">
+                <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span>Learn More</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    
+    </section>    
+    
+    <!-- /About Section -->
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <div class="container">
+    
+        <ul class="nav nav-tabs row g-2 d-flex" data-aos="fade-up" data-aos-delay="100">
+    
+          <li class="nav-item col-3">
+            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
+              <h4>Key Features</h4>
+            </a>
+          </li>
+    
+        </ul>
+    
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+    
+          <div class="tab-pane fade active show" id="features-tab-1">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3>Advanced Stock Tools</h3>
+                <p class="fst-italic">
+                  MoneyMinds offers powerful features to enhance your stock market experience:
+                </p>
+                <ul>
+                  <li><i class="bi bi-check2-all"></i> <span>Search and analyze detailed company information.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Access real-time stock data and trends.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Compare multiple stocks for better decision-making.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Use AI-powered predictions to forecast stock prices.</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img src="{% static 'assets/imgs/working-1.jpg' %}" alt="MoneyMinds Features" class="img-fluid">
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    
+    </section>
+    <!-- /Features Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Explore the essential tools we offer to make your stock market experience smarter and more efficient.</p>
+      </div><!-- End Section Title -->
+    
+      <div class="container">
+    
+        <div class="row gy-4">
+    
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-activity icon"></i></div>
+              <h4><a href="" class="stretched-link">Company Search</a></h4>
+              <p>Find detailed information about companies to guide your investment decisions.</p>
+            </div>
+          </div><!-- End Service Item -->
+    
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
+              <h4><a href="" class="stretched-link">Stock Details</a></h4>
+              <p>Access real-time stock data, trends, and performance metrics to stay ahead.</p>
+            </div>
+          </div><!-- End Service Item -->
+    
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
+              <h4><a href="" class="stretched-link">Compare Stocks</a></h4>
+              <p>Evaluate and compare multiple stocks to make informed investment choices.</p>
+            </div>
+          </div><!-- End Service Item -->
+    
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
+              <h4><a href="" class="stretched-link">Predict Stock Prices</a></h4>
+              <p>Use our AI-driven algorithms to predict future stock trends and market movements.</p>
+            </div>
+          </div><!-- End Service Item -->
+    
+        </div>
+    
+      </div>
+    
+    </section>
+    <!-- /Services Section -->
+
+
+    <!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section light-background">
+
+      <img src="{% static 'assets/imgs/cta-bg.jpg' %}" alt="">
+    
+      <div class="container">
+    
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-9 text-center text-xl-start">
+            <h3>Start Your Stock Market Journey Today</h3>
+            <p>Take control of your investments with real-time data, stock comparison tools, and AI-driven price predictions. Your future in the stock market begins here.</p>
+          </div>
+          <div class="col-xl-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="{% url 'company-search' %}">Get Started Now</a>
+          </div>
+        </div>
+    
+      </div>
+    
+    </section>
+    <!-- /Call To Action Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Testimonials</h2>
+        <p>See what our users say about MoneyMinds and how it has transformed their investment strategies.</p>
+      </div><!-- End Section Title -->
+    
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+    
+        <div class="swiper init-swiper" data-speed="600" data-delay="5000"
+          data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 20
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+    
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>MoneyMinds gave me the insights I needed to make confident stock decisions. The real-time data is a game changer!</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{% static 'assets/imgs/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+                <h4>Investor</h4>
+              </div>
+            </div><!-- End testimonial item -->
+    
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>The comparison tool helped me choose the best stocks for my portfolio. Highly recommend MoneyMinds!</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{% static 'assets/imgs/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
+                <h3>Sara Wilsson</h3>
+                <h4>Trader</h4>
+              </div>
+            </div><!-- End testimonial item -->
+    
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>With the stock prediction feature, I feel more confident in my long-term investments. This platform is invaluable.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{% static 'assets/imgs/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
+                <h3>Jena Karlis</h3>
+                <h4>Stock Enthusiast</h4>
+              </div>
+            </div><!-- End testimonial item -->
+    
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>MoneyMinds provides the data I need to make informed decisions. The platform is user-friendly and efficient.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{% static 'assets/imgs/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
+                <h3>Matt Brandon</h3>
+                <h4>Day Trader</h4>
+              </div>
+            </div><!-- End testimonial item -->
+    
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Thanks to MoneyMinds, I've been able to predict stock movements and make better investment choices.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{% static 'assets/imgs/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
+                <h3>John Larson</h3>
+                <h4>Entrepreneur</h4>
+              </div>
+            </div><!-- End testimonial item -->
+    
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+    
+      </div>
+    
+    </section>
+    <!-- /Testimonials Section -->
+
+    <!-- Team Section -->
+    <section id="team" class="team section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Team</h2>
+        <p>Leading MarketMinds with a vision to transform the way you approach stock market investments.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="pic"><img src="{% static 'assets/imgs/team/Tanu.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info w-full">
+                <h4>Tanvi Vejani</h4>
+                <span>Chief Executive Officer</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/_tanu_20?igsh=eWcxM2Z2aTdyOGlx"><i class="bi bi-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/tanvivejani05/"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+        </div>
+      </div>
+    </section><!-- /Team Section -->
+
+
+
+    <!-- Faq Section -->
+    <section id="faq" class="faq section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Frequently Asked Questions</h2>
+        <p>Your questions about investing and using MoneyMinds, answered.</p>
+      </div><!-- End Section Title -->
+      
+      <div class="container">
+      
+        <div class="row justify-content-center">
+      
+          <div class="col-lg-8">
+      
+            <div class="faq-container">
+      
+              <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>How can I search for a company's stock information?</h3>
+                <div class="faq-content">
+                  <p>You can use our Company Search feature to find detailed information about any listed company, including its stock price, market performance, and more.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+      
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>How accurate are the stock predictions?</h3>
+                <div class="faq-content">
+                  <p>Our AI-powered stock price prediction feature is based on advanced algorithms and historical data. However, predictions are inherently uncertain and can be influenced by unforeseen market conditions. We advise users not to rely solely on these predictions for financial decisions and to consider other factors before making investments.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+      
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Can I compare stocks on MoneyMinds?</h3>
+                <div class="faq-content">
+                  <p>Yes! Our Compare Stocks feature allows you to analyze multiple stocks side by side, helping you make better investment decisions.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+      
+              <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Is the stock data on MoneyMinds real-time?</h3>
+                <div class="faq-content">
+                  <p>Yes, all stock data is updated in real-time to ensure that you have the most accurate and up-to-date information at your fingertips.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+ 
+            </div>
+      
+          </div>
+      
+        </div>
+      
+      </div>
+      <!-- /Faq Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6">
+
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <div class="info-item" data-aos="fade" data-aos-delay="200">
+                  <i class="bi bi-geo-alt"></i>
+                  <h3>Address</h3>
+                  <p>A108 Adam Street</p>
+                  <p>Ahmedabad GJ 385060 </p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="col-md-6">
+                <div class="info-item" data-aos="fade" data-aos-delay="300">
+                  <i class="bi bi-telephone"></i>
+                  <h3>Call Us</h3>
+                  <p>+91 55894 55488 </p>
+                  <p>+91 66784 25445 </p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="col-md-6">
+                <div class="info-item" data-aos="fade" data-aos-delay="400">
+                  <i class="bi bi-envelope"></i>
+                  <h3>Email Us</h3>
+                  <p>info@example.com</p>
+                  <p>contact@example.com</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="col-md-6">
+                <div class="info-item" data-aos="fade" data-aos-delay="500">
+                  <i class="bi bi-clock"></i>
+                  <h3>Open Hours</h3>
+                  <p>Monday - Friday</p>
+                  <p>9:00AM - 05:00PM</p>
+                </div>
+              </div><!-- End Info Item -->
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+            <form method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                </div>
+
+                <div class="col-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                </div>
+
+                <div class="col-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                </div>
+
+                <div class="col-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  <button type="submit">Send Message</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+
+
+
+    <div class="copyright text-center">
+      <div
+        class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          <div>
+            © Copyright <strong><span>MyWebsite</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            Designed by <a href="#">Tanvi Vejani</a>
+          </div>
+        </div>
+
+        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+          <a href=""><i class="bi bi-twitter-x"></i></a>
+          <a href=""><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/_tanu_20?igsh=eWcxM2Z2aTdyOGlx"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/tanvivejani05/"><i class="bi bi-linkedin"></i></a>
+        </div>
+
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
